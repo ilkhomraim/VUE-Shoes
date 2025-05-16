@@ -4,11 +4,11 @@ import Card from './Card.vue'
 
 <template>
   <div class="grid grid-cols-4 gap-5">
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
+    <Card
+      title="Мужские Кроссовки Nike Blazer Mid Suede"
+      imageUrl="/sneakers/sneakers-1.jpg"
+      :price="12900"
+      :is-favorite="true"
+    />
   </div>
 </template>
