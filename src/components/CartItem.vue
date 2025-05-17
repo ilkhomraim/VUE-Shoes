@@ -4,13 +4,13 @@
   >
     <img class="w-30" src="/sneakers/sneakers-1.jpg" alt="Sneaker" />
 
-    <div class="flex flex-col justify-between">
+    <div class="flex flex-col justify-between w-full">
       <p>кроссовки</p>
 
-      <div class="flex justify-beetwen mt-2">
+      <div class="flex justify-between mt-2">
         <b>12990 руб.</b>
         <img
-          class="opacity-40 hover:opacity-100 cursor-pointer tansition"
+          class="opacity-40 hover:opacity-100 cursor-pointer transition"
           src="/close.svg"
           alt=""
         />
