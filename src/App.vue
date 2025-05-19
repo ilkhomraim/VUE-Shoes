@@ -47,12 +47,12 @@ watch(filters, fetchItems)
 
 <template>
   <!-- <Drawer /> -->
-  <div class="bg-white w-4/5 m-auto rounded-xl shadow-xl mt-10">
+  <div class="bg-white m-auto rounded-xl shadow-xl">
     <Header />
 
-    <div class="p-10">
-      <div class="flex justify-between items-center mb-8">
-        <h2 class="text-3xl font-bold">Все Кроссовки</h2>
+    <div class="p-10 max-lg:p-5">
+      <div class="flex justify-between items-center mb-8 max-md:flex-col gap-4">
+        <h2 class="text-3xl font-bold max-lg:text-2xl">Все Кроссовки</h2>
 
         <select
           @change="onChangeSelect"

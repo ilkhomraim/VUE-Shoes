@@ -12,7 +12,7 @@ defineProps({
 
 <template>
   <div
-    class="relative bg-white border-slate-300 border-solid rounded-3xl p-8 cursor-pointer hover:-translate-y-2 hover:shadow-xl transition"
+    class="relative bg-white border-slate-300 border-solid rounded-3xl p-8 cursor-pointer hover:-translate-y-2 hover:shadow-xl transition max-lg:p-6 max-sm:p-1"
   >
     <div>
       <img
@@ -22,7 +22,7 @@ defineProps({
         alt=""
       />
       <img :src="imageUrl" alt="Sneaker" />
-      <p class="mt-2">{{ title }}</p>
+      <p class="mt-2 max-md:text-base max-sm:text-sm">{{ title }}</p>
     </div>
 
     <div class="flex justify-between mt-5">
