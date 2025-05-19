@@ -1,35 +1,46 @@
-# vue-shoes
+# 🥿 VUE Shoes — Search, Filter, Bookmarks & Cart
 
-This template should help get you started developing with Vue 3 in Vite.
+This is a modern single-page application built with **Vue 3**, **Vite**, and **Tailwind CSS**. It features a clean and responsive user interface with real-time **search**, **filtering**, and the ability to **add items to bookmarks and cart**.
 
-## Recommended IDE Setup
+## 🚀 Features
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- 🔍 Real-time keyword search
+- 🎯 Filter products by category or tags
+- 📌 Add/remove items from **bookmarks**
+- 🛒 Add/remove items from the **cart**
+- 📱 Responsive design powered by Tailwind CSS
+- ⚡️ Fast development environment with Vite
+- 🧩 Clean modular architecture with Vue 3 Composition API
 
-## Customize configuration
+## 🛠 Tech Stack
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- [Vue 3](https://vuejs.org/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
-## Project Setup
+## ▶️ Getting Started
 
-```sh
+### Prerequisites
+
+Make sure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (v16 or higher)
+- npm or yarn
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/ilkhomraim/VUE-shoes.git
+cd VUE-shoes
+
+# Install dependencies
 npm install
-```
+# or
+yarn
 
-### Compile and Hot-Reload for Development
-
-```sh
+# Start the development server
 npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
+# or
+yarn dev
 ```
