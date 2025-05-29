@@ -8,6 +8,16 @@ import Drawer from './components/Drawer.vue'
 
 const items = ref([])
 
+const drawerOpen = ref(false)
+
+const closeDrawer = () => {
+  drawerOpen.value = false
+}
+
+const openDrawer = () => {
+  drawerOpen.value = true
+}
+
 const filters = reactive({
   sortBy: 'title',
   searchQuery: '',
@@ -96,13 +106,16 @@ onMounted(async () => {
 
 watch(filters, fetchItems)
 
-provide('addToFavorite', addToFavorite)
+provide('cardActions', {
+  closeDrawer,
+  openDrawer,
+})
 </script>
 
 <template>
-  <!-- <Drawer /> -->
+  <Drawer v-if="drawerOpen" />
   <div class="bg-white m-auto rounded-xl shadow-xl">
-    <Header />
+    <Header @open-drawer="openDrawer" />
 
     <div class="p-10 max-lg:p-5">
       <div class="flex justify-between items-center mb-8 max-md:flex-col gap-4">
@@ -127,7 +140,7 @@ provide('addToFavorite', addToFavorite)
         </div>
       </div>
 
-      <CardList :items="items" @addToFavorite="addToFavorite" />
+      <CardList :items="items" @add-to-favorite="addToFavorite" />
     </div>
   </div>
 </template>
