@@ -7,6 +7,7 @@ import CardList from './components/CardList.vue'
 import Drawer from './components/Drawer.vue'
 
 const items = ref([])
+const cart = ref([])
 
 const drawerOpen = ref(false)
 
@@ -22,8 +23,20 @@ const filters = reactive({
   sortBy: 'title',
   searchQuery: '',
 })
+
 const onChangeSelect = (event) => {
   filters.sortBy = event.target.value
+}
+
+const addToCart = (item) => {
+  if (!item.isAdded) {
+    cart.value.push(item)
+    item.isAdded = true
+  } else {
+    cart.value.splice(cart.value.indexOf(item, 1))
+    item.isAdded = false
+  }
+  console.log(cart)
 }
 
 const onChangeSearchInput = (event) => {
@@ -140,7 +153,7 @@ provide('cardActions', {
         </div>
       </div>
 
-      <CardList :items="items" @add-to-favorite="addToFavorite" />
+      <CardList :items="items" @add-to-favorite="addToFavorite" @add-to-cart="addToCart" />
     </div>
   </div>
 </template>
