@@ -11,6 +11,14 @@ const cart = ref([])
 
 const drawerOpen = ref(false)
 
+watch(drawerOpen, (isOpen) => {
+  if (isOpen) {
+    document.body.classList.add('no-scroll')
+  } else {
+    document.body.classList.remove('no-scroll')
+  }
+})
+
 const totalPrice = computed(() => cart.value.reduce((acc, item) => acc + item.price, 0))
 const vatPrice = computed(() => Math.round((totalPrice.value * 5) / 100))
 
