@@ -8,6 +8,7 @@ import Drawer from './components/Drawer.vue'
 
 const items = ref([])
 const cart = ref([])
+const isCreatingOrder = ref(false)
 
 const drawerOpen = ref(false)
 
@@ -50,6 +51,23 @@ const removeFromCart = (item) => {
     cart.value.splice(index, 1)
   }
   item.isAdded = false
+}
+
+const createOrder = async () => {
+  try {
+    isCreatingOrder.value = true
+    const { data } = await axios.post(`https://fa3088e6425c2332.mokky.dev/orders`, {
+      items: cart.value,
+      totalPrice: totalPrice.value,
+    })
+
+    cart.value = []
+    return data
+  } catch (err) {
+    console.log(err)
+  } finally {
+    isCreatingOrder.value = false
+  }
 }
 
 const onClickAddPlus = (item) => {
@@ -134,6 +152,12 @@ const fetchItems = async () => {
   }
 }
 
+watch(cart, () => {
+  items.value = items.value.map((item) => ({
+    ...item,
+    isAdded: false,
+  }))
+})
 onMounted(async () => {
   await fetchItems()
   await fetchFavorites()
@@ -151,7 +175,13 @@ provide('cart', {
 </script>
 
 <template>
-  <Drawer v-if="drawerOpen" :total-price="totalPrice" :vatPrice="vatPrice" />
+  <Drawer
+    v-if="drawerOpen"
+    :total-price="totalPrice"
+    :vatPrice="vatPrice"
+    @create-order="createOrder"
+    :is-creating-order="isCreatingOrder.value"
+  />
   <div class="bg-white m-auto rounded-xl shadow-xl">
     <Header :totalPrice="totalPrice" @open-drawer="openDrawer" />
 
