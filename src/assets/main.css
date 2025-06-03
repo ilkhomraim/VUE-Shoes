@@ -1,9 +1,5 @@
 @import 'tailwindcss';
 
-body {
-  background-color: rgb(247 254 231);
-}
-
 body.no-scroll {
   overflow: hidden;
 }
